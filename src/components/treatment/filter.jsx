@@ -8,7 +8,7 @@ import Favoris from "./Favoris";
 const Filter = (props) => {
   const [title, setTitle] = useState("");
   const [sort, setSort] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1); 
   const [currentPageFav, setCurrentPageFav] = useState(1);
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
@@ -33,7 +33,7 @@ const Filter = (props) => {
     });
 
     return result;
-  };
+  };  
 
   const lastFilm = currentPage * filmPerPage;
   const firstFilm = lastFilm - filmPerPage;
@@ -71,16 +71,7 @@ const Filter = (props) => {
 
   return (
     <div>
-      <div className="filter-section">
-        <SearchBar onSearch={(newTitle) => {
-            setTitle(newTitle);
-            setCurrentPage(1); 
-          }} />
-        <SortButtons onSelect={(newSort) => {
-            setSort(newSort);
-            setCurrentPage(1);
-          }} />
-      </div>
+      
       <div className="favoriebutton">
         <button onClick={() => setShowFavorites(!showFavorites)}>
           {showFavorites ? "Back to All Movies" : "View Favorites"}
@@ -97,6 +88,16 @@ const Filter = (props) => {
         </div>
       ) : (
         <div>
+          <div className="filter-section">
+          <SearchBar onSearch={(newTitle) => {
+              setTitle(newTitle);
+              setCurrentPage(1); 
+            }} />
+          <SortButtons onSelect={(newSort) => {
+              setSort(newSort);
+              setCurrentPage(1);
+            }} />
+        </div>
           <MovieList currentFilms={currentFilms} onSave={handleAddToFavorites} savedFilms={favorites} onDetails={handleDetails} selectedFilm={selectedFilm}/>
           <Pagination
             currentPage={currentPage}

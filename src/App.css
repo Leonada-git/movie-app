@@ -148,6 +148,7 @@ input[type="text"]:focus {
 .favoriebutton{
   float: right;
   margin-right: 8%;
+  margin-top: 6%;
 }
 .favoriebutton button, .buttons button{
   flex: 1;
@@ -179,16 +180,19 @@ input[type="text"]:focus {
   margin-top: 5%;
   font-family: cursive;
   font-weight: bold;
+  font-size: 40px;
+  color: #023d7c;
 }
 /* Card container */
 .container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  width: 70%;
   padding: 20px;
   margin: 0 auto;
   max-width: 1200px;
-  justify-content: center;
+  justify-content: left;
 }
 /* Card*/
 .card {
@@ -197,7 +201,7 @@ input[type="text"]:focus {
   border-radius: 8px;
   width: 100%;
   padding: 20px;
-  max-width: 250px;
+  max-width: 200px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -283,6 +287,7 @@ input[type="text"]:focus {
   cursor: pointer;
   margin: 10px;
   transition: all 0.3s ease;
+  
 }
 
 button:hover {

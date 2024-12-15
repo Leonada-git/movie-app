@@ -26,9 +26,8 @@ const App=()=>{
     return(<div>
         <Header/>
         <div className="main">
-          <h2>Films</h2>
           <Filter films={liste}/>
-            <h2>Ajouter Film</h2>
+            <h2>Add Movie</h2>
           </div>
           <form action="">
               <Validation onAdd={addFilms}/>

@@ -38,7 +38,7 @@ const AddFilmForm =(props)=>{
             {props.errors.rating && <p className="error">{props.errors.rating}</p>}   
         </div>
         <div>
-        <button type="submit" onClick={props.onSubmit}>Add Book</button>
+        <button type="submit" onClick={props.onSubmit}>Add Movie</button>
         <button type="button" onClick={props.onReset}> Reset </button>
       </div>
     </div>)
