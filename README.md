@@ -15,8 +15,8 @@ To run the application locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   https://github.com/Leonada-git/Movie-Manager.git
-   cd Movie-Manager
+   https://github.com/Leonada-git/movie-app.git
+   cd movie-app
    ```
 
 2. **Install dependencies**:
