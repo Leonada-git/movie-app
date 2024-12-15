@@ -20,19 +20,25 @@ const App=()=>{
       ];
 
     const [liste, setListe] = useState(Films);
+    const [showFavorites, setShowFavorites] = useState(false);
     const addFilms = (newFilm) => {
         setListe((prevFilms) => [...prevFilms, newFilm]);
       };
     return(<div>
         <Header/>
         <div className="main">
-          <Filter films={liste}/>
-            <h2>Add Movie</h2>
+          <Filter films={liste} setshowFavorites={setShowFavorites} showFavorites={showFavorites}/>
           </div>
-          <form action="">
-              <Validation onAdd={addFilms}/>
-          </form>
+          {!showFavorites && ( 
+                  <div>
+                    <h2>Add Movie</h2>
+                    <form action="">
+                        <Validation onAdd={addFilms} />
+                    </form>
+                  </div>
+                )}
         <Footer/>
     </div>)
+
 }
 export default App;

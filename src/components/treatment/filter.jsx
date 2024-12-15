@@ -11,7 +11,6 @@ const Filter = (props) => {
   const [currentPage, setCurrentPage] = useState(1); 
   const [currentPageFav, setCurrentPageFav] = useState(1);
   const [favorites, setFavorites] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false);
   const [selectedFilm, setSelectedFilm] = useState(null); 
   const filmPerPage = 5;
 
@@ -87,16 +86,16 @@ const Filter = (props) => {
   const handleDetails = (film) => {
     setSelectedFilm(film);
   };
-
+  const fav = currentFavorites.length 
   return (
     <div>
       
       <div className="favoriebutton">
-        <button onClick={() => setShowFavorites(!showFavorites)}>
-          {showFavorites ? "Back to All Movies" : "View Favorites"}
+        <button onClick={() => props.setshowFavorites(!props.showFavorites)}>
+          {props.showFavorites ? "Back to All Movies" : "View Favorites"}
         </button>
       </div>  
-      {showFavorites ? (
+      {props.showFavorites ? (
         <div>
           <div className="filter-section">
           <SearchBar onSearch={(newTitle) => {
@@ -109,11 +108,8 @@ const Filter = (props) => {
             }} />
         </div>
           <Favoris  Films={currentFavorites} onRemove={handleRemoveFromFavorites} selectedFilm={selectedFilm} currentFilms={currentFilms} onDetails={handleDetails} />
-          <Pagination
-            currentPage={currentPageFav}
-            totalPages={totalFavPages}
-            onPageChange={handlePageChangeFav}
-          />
+          { fav > 0 && <Pagination currentPage={currentPageFav}totalPages={totalFavPages} onPageChange={handlePageChangeFav}/>}
+          
         </div>
       ) : (
         <div>
