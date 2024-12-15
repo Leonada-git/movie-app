@@ -86,25 +86,6 @@ footer p {
   line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .nav-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav ul {
-    flex-direction: column;
-    margin-top: 10px;
-  }
-
-  nav ul li {
-    margin: 5px 0;
-  }
-
-  button {
-    margin: 10px 5px 0 0;
-  }
-}
 /* Inputs */
 .filter-section{
   display: grid;
@@ -113,6 +94,7 @@ footer p {
   padding: 20px;
   margin: 0 auto;
 }
+
 /* search input */
 .search input {
   padding: 10px;
@@ -175,7 +157,7 @@ input[type="text"]:focus {
   margin-top: 8%;
   margin-left: 5%;
 }
-.main h2{
+h2{
   margin-left: 10%;
   margin-top: 5%;
   font-family: cursive;
@@ -383,4 +365,91 @@ button.active {
 
 .new-form button[type="button"]:hover {
   background-color: #5a6268;
+}
+@media (max-width: 1000px) {
+  .favoriebutton{
+    margin-right: 4%;
+    margin-top: 12%;
+  }
+  .favoriebutton button, .buttons button{
+    width: 130px;
+    font-size: 14px;
+  }
+ h2{
+    font-size: 30px;
+  }
+  .details{
+    width: 35%;
+    height: 200px;
+    margin: 7%;
+    top: 30%;
+    left: 60%;
+  }
+}
+@media (max-width: 758px) {
+  .nav-bar {
+    height: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin-left: 40px;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+  .main{
+    margin-top: 40%;
+    margin-left: 0;
+  }
+  .favoriebutton{
+    margin-top: 14%;
+  }
+  .favoriebutton button, .buttons button{
+    width: 120px;
+    font-size: 13px;
+  }
+ h2{
+    font-size: 25px;
+  }
+  .new-form {
+    max-width: 350px;
+  }
+  .new-form button {
+    margin-left: 23%;
+    margin-top: 15px;
+  }.new-form input {
+    max-width: 300px;
+  }
+  .new-form select{
+    max-width: 320px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    padding: 20px;
+    max-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .details{
+    width: 35%;
+    height: 200px;
+    margin: 7%;
+    top: 65%;
+    left: 45%;
+  }
+  .pagination button{
+    padding: 6px 14px;
+    font-size: 13px;
+    
+  }
 }
