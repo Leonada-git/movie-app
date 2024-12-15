@@ -35,14 +35,33 @@ const Filter = (props) => {
     return result;
   };  
 
+  const SearchResultFav = () => {
+    let result = favorites.filter((film) =>
+      (film.title || "" ).toLowerCase().includes(title.toLowerCase()) || (film.genre || "" ).toLowerCase().includes(title.toLowerCase())
+    );
+
+    result = result.sort((a, b) => {
+      switch (sort) {
+        case "note":
+          return b.rating - a.rating;
+        case "annee":
+          return b.releaseYear - a.releaseYear;
+        default:
+          return 0;
+      }
+    });
+
+    return result;
+  };  
+
   const lastFilm = currentPage * filmPerPage;
   const firstFilm = lastFilm - filmPerPage;
   const currentFilms = SearchResult().slice(firstFilm, lastFilm);
   const totalPages = Math.ceil(SearchResult().length / filmPerPage);
   const lastFavFilm = currentPageFav * filmPerPage;
   const firstFavFilm = lastFavFilm - filmPerPage;
-  const currentFavorites = favorites.slice(firstFavFilm, lastFavFilm);
-  const totalFavPages = Math.ceil(favorites.length / filmPerPage);
+  const currentFavorites = SearchResultFav().slice(firstFavFilm, lastFavFilm);
+  const totalFavPages = Math.ceil(SearchResultFav().length / filmPerPage);
 
   const handlePageChange = (newPage) => {
     if (newPage > 0 && newPage <= totalPages) {
@@ -76,9 +95,19 @@ const Filter = (props) => {
         <button onClick={() => setShowFavorites(!showFavorites)}>
           {showFavorites ? "Back to All Movies" : "View Favorites"}
         </button>
-      </div>
+      </div>  
       {showFavorites ? (
         <div>
+          <div className="filter-section">
+          <SearchBar onSearch={(newTitle) => {
+              setTitle(newTitle);
+              setCurrentPageFav(1); 
+            }} />
+          <SortButtons onSelect={(newSort) => {
+              setSort(newSort);
+              setCurrentPageFav(1);
+            }} />
+        </div>
           <Favoris  Films={currentFavorites} onRemove={handleRemoveFromFavorites} selectedFilm={selectedFilm} currentFilms={currentFilms} onDetails={handleDetails} />
           <Pagination
             currentPage={currentPageFav}
@@ -89,15 +118,15 @@ const Filter = (props) => {
       ) : (
         <div>
           <div className="filter-section">
-          <SearchBar onSearch={(newTitle) => {
-              setTitle(newTitle);
-              setCurrentPage(1); 
-            }} />
-          <SortButtons onSelect={(newSort) => {
-              setSort(newSort);
-              setCurrentPage(1);
-            }} />
-        </div>
+            <SearchBar onSearch={(newTitle) => {
+                setTitle(newTitle);
+                setCurrentPage(1); 
+              }} />
+            <SortButtons onSelect={(newSort) => {
+                setSort(newSort);
+                setCurrentPage(1);
+              }} />
+          </div>
           <MovieList currentFilms={currentFilms} onSave={handleAddToFavorites} savedFilms={favorites} onDetails={handleDetails} selectedFilm={selectedFilm}/>
           <Pagination
             currentPage={currentPage}
