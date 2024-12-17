@@ -6,7 +6,7 @@ const Menu=()=>{
         <ul>
             <li><NavLink to="/" >Home</NavLink></li>
             <li><NavLink to="/favories">Favories</NavLink></li>
-            <li><a href="#Service">Service</a></li>
+            <li><NavLink to="/Ajout">Ajouter Film</NavLink></li>
         </ul>
     </nav>)
 }

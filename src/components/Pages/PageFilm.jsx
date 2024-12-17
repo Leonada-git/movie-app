@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import '../App.css';
-import Filter from "./treatment/filter";
-import Validation from "./Form/Validation";
 
-const Home=()=>{
+import React from "react";
+import Filter from "../treatment/filter";
+
+const PageFilm=()=>{
     const Films = [
         { title: "Inception", director: "Christopher Nolan", releaseYear: 2010, genre: "Science Fiction", rating: 8.8 },
         { title: "The Godfather", director: "Francis Ford Coppola", releaseYear: 1972, genre: "Crime", rating: 9.2 },
@@ -17,23 +16,16 @@ const Home=()=>{
         { title: "The Lord of the Rings: The Return of the King", director: "Peter Jackson", releaseYear: 2003, genre: "Fantasy", rating: 9.0 }
       ];
 
-    const [liste, setListe] = useState(Films);
-    const [showFavorites, setShowFavorites] = useState(false);
-    const addFilms = (newFilm) => {
-        setListe((prevFilms) => [...prevFilms, newFilm]);
-      };
     return(<div>
         <div className="main">
-            <Filter films={liste} setshowFavorites={setShowFavorites} showFavorites={showFavorites}/>
+            <Filter films={Films}/>
         </div>
         <div>
         <h2>Add Movie</h2>
-        <form action="">
-            <Validation onAdd={addFilms} />
-        </form>
+        
         </div>
                 
     </div>)
 
 }
-export default Home;
+export default PageFilm;

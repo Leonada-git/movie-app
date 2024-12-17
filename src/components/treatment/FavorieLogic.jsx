@@ -15,6 +15,7 @@ const FavorieLogic = (props) => {
   const navigate = useNavigate();
 
   const SearchResultFav = () => {
+    const favorites = props.films
     let result = favorites.filter((film) =>
       (film.title || "" ).toLowerCase().includes(title.toLowerCase()) || (film.genre || "" ).toLowerCase().includes(title.toLowerCase())
     );
