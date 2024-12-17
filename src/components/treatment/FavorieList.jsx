@@ -1,9 +1,8 @@
 import React from "react";
 import MovieDetails from "./MovieDetails";
 
-const Favoris=(props)=>{
+const Favories=(props)=>{
       const selectedFilm = props.selectedFilm;
-      const currentFilms = props.Films;
     return(<div className="">
       <div className="container">
         {props.Films.map((film) => (
@@ -19,8 +18,8 @@ const Favoris=(props)=>{
         ))}
       </div>
       <div className="details">
-        <MovieDetails selectedFilm={selectedFilm} currentFilms={currentFilms}/>
+        <MovieDetails selectedFilm={selectedFilm} currentFilms={props.Films}/>
       </div>
       </div>)
 }
-export default Favoris;
+export default Favories;
